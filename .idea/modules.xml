@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/base.iml" filepath="$PROJECT_DIR$/base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseBusiness/baseBusiness.iml" filepath="$PROJECT_DIR$/baseBusiness/baseBusiness.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseEntity/baseEntity.iml" filepath="$PROJECT_DIR$/baseEntity/baseEntity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseService/baseService.iml" filepath="$PROJECT_DIR$/baseService/baseService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseStatic/baseStatic.iml" filepath="$PROJECT_DIR$/baseStatic/baseStatic.iml" />
+    </modules>
+  </component>
+</project>
