@@ -89,7 +89,7 @@
 	
 	<!-- 给抓取使用的数据库连接池配置 *****************************************开始***************************************** -->
 	
-	<beans profile="spider_dev">
+	<beans profile="dev">
 		<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 			init-method="init" destroy-method="close">
 			<property name="url" value="${dev.sqlserver.database.url}" />
@@ -110,7 +110,7 @@
 		</bean>
 	</beans>
 	
-	<beans profile="spider_test">
+	<beans profile="test">
 		<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 			init-method="init" destroy-method="close">
 			<property name="url" value="${test.sqlserver.database.url}" />
@@ -131,7 +131,7 @@
 		</bean>
 	</beans>
 	
-	<beans profile="spider_prod">
+	<beans profile="prod">
 		<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 			init-method="init" destroy-method="close">
 			<property name="url" value="${prod.sqlserver.database.url}" />
