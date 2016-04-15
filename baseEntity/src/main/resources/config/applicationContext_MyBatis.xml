@@ -1,34 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:aop="http://www.springframework.org/schema/aop" 
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:jee="http://www.springframework.org/schema/jee" 
 	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
-			http://www.springframework.org/schema/aop 
-			http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
 	        http://www.springframework.org/schema/beans 
 	        http://www.springframework.org/schema/beans/spring-beans.xsd
-	        http://www.springframework.org/schema/context 
-	        http://www.springframework.org/schema/context/spring-context.xsd
-	        http://www.springframework.org/schema/jee 
-	        http://www.springframework.org/schema/jee/spring-jee.xsd
 	        http://www.springframework.org/schema/tx 
 	        http://www.springframework.org/schema/tx/spring-tx.xsd
-	        http://www.springframework.org/schema/util 
-	        http://www.springframework.org/schema/util/spring-util.xsd
 	        ">
 
 	<!-- mybatis 配置 -->
 	<beans profile="dev">
 		<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 			init-method="init" destroy-method="close">
-			<property name="url" value="${dev.sqlserver.database.url}" />
-			<property name="username" value="${dev.sqlserver.database.username}" />
-			<property name="password" value="${dev.sqlserver.database.password}" />
+			<property name="url" value="${dev.database.url}" />
+			<property name="username" value="${dev.database.username}" />
+			<property name="password" value="${dev.database.password}" />
 			<property name="initialSize" value="10" />
 			<property name="maxActive" value="100" />
 			<property name="maxWait" value="15000" />
@@ -48,9 +35,9 @@
 	<beans profile="test">
 		<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 			init-method="init" destroy-method="close">
-			<property name="url" value="${test.sqlserver.database.url}" />
-			<property name="username" value="${test.sqlserver.database.username}" />
-			<property name="password" value="${test.sqlserver.database.password}" />
+			<property name="url" value="${test.database.url}" />
+			<property name="username" value="${test.database.username}" />
+			<property name="password" value="${test.database.password}" />
 			<property name="initialSize" value="10" />
 			<property name="maxActive" value="50" />
 			<property name="maxWait" value="100" />
@@ -69,9 +56,9 @@
 	<beans profile="prod">
 		<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 			init-method="init" destroy-method="close">
-			<property name="url" value="${prod.sqlserver.database.url}" />
-			<property name="username" value="${prod.sqlserver.database.username}" />
-			<property name="password" value="${prod.sqlserver.database.password}" />
+			<property name="url" value="${prod.database.url}" />
+			<property name="username" value="${prod.database.username}" />
+			<property name="password" value="${prod.database.password}" />
 			<property name="initialSize" value="30" />
 			<property name="maxActive" value="200" />
 			<property name="maxWait" value="300" />
@@ -86,74 +73,8 @@
 			<!-- <property name="filters" value="mergeStat" /> -->
 		</bean>
 	</beans>
-	
-	<!-- 给抓取使用的数据库连接池配置 *****************************************开始***************************************** -->
-	
-	<beans profile="dev">
-		<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
-			init-method="init" destroy-method="close">
-			<property name="url" value="${dev.sqlserver.database.url}" />
-			<property name="username" value="${dev.sqlserver.database.username}" />
-			<property name="password" value="${dev.sqlserver.database.password}" />
-			<property name="initialSize" value="10" />
-			<property name="maxActive" value="100" />
-			<property name="maxWait" value="15000" />
-			<!-- <property name="validationQuery" value="${validationQuery}" /> -->
-			<property name="testOnBorrow" value="false" />
-			<property name="testOnReturn" value="false" />
-			<property name="testWhileIdle" value="false" />
-			<property name="timeBetweenEvictionRunsMillis" value="60000" />
-			<property name="removeAbandoned" value="true" />
-			<property name="removeAbandonedTimeout" value="200000" />
-			<property name="logAbandoned" value="true" />
-			<!-- <property name="filters" value="mergeStat" /> -->
-		</bean>
-	</beans>
-	
-	<beans profile="test">
-		<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
-			init-method="init" destroy-method="close">
-			<property name="url" value="${test.sqlserver.database.url}" />
-			<property name="username" value="${test.sqlserver.database.username}" />
-			<property name="password" value="${test.sqlserver.database.password}" />
-			<property name="initialSize" value="10" />
-			<property name="maxActive" value="50" />
-			<property name="maxWait" value="100" />
-			<!-- <property name="validationQuery" value="${validationQuery}" /> -->
-			<property name="testOnBorrow" value="false" />
-			<property name="testOnReturn" value="false" />
-			<property name="testWhileIdle" value="false" />
-			<property name="timeBetweenEvictionRunsMillis" value="60000" />
-			<property name="removeAbandoned" value="true" />
-			<property name="removeAbandonedTimeout" value="200000" />
-			<property name="logAbandoned" value="true" />
-			<!-- <property name="filters" value="mergeStat" /> -->
-		</bean>
-	</beans>
-	
-	<beans profile="prod">
-		<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
-			init-method="init" destroy-method="close">
-			<property name="url" value="${prod.sqlserver.database.url}" />
-			<property name="username" value="${prod.sqlserver.database.username}" />
-			<property name="password" value="${prod.sqlserver.database.password}" />
-			<property name="initialSize" value="130" />
-			<property name="maxActive" value="200" />
-			<property name="maxWait" value="10000" />
-			<!-- <property name="validationQuery" value="${validationQuery}" /> -->
-			<property name="testOnBorrow" value="false" />
-			<property name="testOnReturn" value="false" />
-			<property name="testWhileIdle" value="false" />
-			<property name="timeBetweenEvictionRunsMillis" value="60000" />
-			<property name="removeAbandoned" value="true" />
-			<property name="removeAbandonedTimeout" value="200000" />
-			<property name="logAbandoned" value="true" />
-			<!-- <property name="filters" value="mergeStat" /> -->
-		</bean>
-	</beans>
-	
-	<!-- 给抓取使用的数据库连接池配置 *****************************************结束***************************************** -->
-	
+
+
 	<beans>
 		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 			<property name="dataSource" ref="dataSource" />
