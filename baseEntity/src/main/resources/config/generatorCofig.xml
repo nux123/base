@@ -33,7 +33,7 @@
             targetPackage     指定生成的model生成所在的包名
             targetProject     指定在该项目下所在的路径
         -->
-        <javaModelGenerator targetPackage="com.likeme.user.model" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.likeme.message.model" targetProject="src/main/java">
             <!-- 是否对model添加 构造函数 -->
             <property name="constructorBased" value="true"/>
 
@@ -44,14 +44,14 @@
             <property name="immutable" value="false"/>
 
             <!-- 给Model添加一个父类 -->
-            <property name="userClass" value="com.likeme.user.model"/>
+            <property name="userClass" value="com.likeme.message.model"/>
 
             <!-- 是否对类CHAR类型的列的数据进行trim操作 -->
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!--Mapper映射文件生成所在的目录 为每一个数据库的表生成对应的SqlMap文件 -->
-        <sqlMapGenerator targetPackage="com.likeme.user.xml" targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="com.likeme.message.xml" targetProject="src/main/java">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
@@ -61,7 +61,7 @@
                 type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
                 type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
         -->
-        <javaClientGenerator targetPackage="com.likeme.user.dao" targetProject="src/main/java" type="MIXEDMAPPER">
+        <javaClientGenerator targetPackage="com.likeme.message.dao" targetProject="src/main/java" type="MIXEDMAPPER">
             <property name="enableSubPackages" value=""/>
             <!--
                     定义Maper.java 源代码中的ByExample() 方法的可视性，可选的值有：
@@ -87,15 +87,11 @@
 
 
 
-        <table tableName="user" schema="base">
+        <table tableName="message" schema="base">
 
             <generatedKey column="id" sqlStatement="mysql" identity="false" type="pre"/>
-            <columnOverride column="user_name" javaType="String"    jdbcType="varchar"/>
-            <columnOverride column="password" javaType="String"    jdbcType="varchar"/>
-            <columnOverride column="phone_number" javaType="int"    jdbcType="int"/>
-            <columnOverride column="address" javaType="String"    jdbcType="varchar"/>
-            <columnOverride column="email" javaType="String"    jdbcType="varchar"/>
-            <columnOverride column="user_img" javaType="String"    jdbcType="varchar"/>
+            <columnOverride column="user_id" javaType="String"    jdbcType="varchar"/>
+            <columnOverride column="message" javaType="String"    jdbcType="text"/>
         </table>
     </context>
 </generatorConfiguration>

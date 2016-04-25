@@ -28,12 +28,13 @@
         <module name="baseStatic" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="base" target="1.5" />
-      <module name="baseBusiness" target="1.5" />
-      <module name="baseEntity" target="1.5" />
-      <module name="baseService" target="1.5" />
-      <module name="baseStatic" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="base" target="1.8" />
+      <module name="baseBusiness" target="1.8" />
+      <module name="baseEntity" target="1.8" />
+      <module name="baseService" target="1.8" />
+      <module name="baseStatic" target="1.8" />
+      <module name="test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
