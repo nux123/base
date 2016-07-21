@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level	%logger{35}:%line - %msg%n
+			</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="dailyRollingFileAppender_CPL_TimeTask"
+			  class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>/var/local/spiderlog/productSpiderTimeTaskLog/logFile.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>/var/local/spiderlog/productSpiderTimeTaskLog/logFile.%d{yyyy-MM-dd_HH}.log
+			</FileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level	%logger{35}:%line - %msg%n
+			</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="dailyRollingFileAppender_CSW"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>/var/local/consoleWebLog/logFile.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>/var/local/consoleWebLog/logFile.%d{yyyy-MM-dd_HH}.log
+			</FileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>
+			%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level	%logger{35}:%line - %msg%n
+			</Pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.likeme.controller" level="ERROR" additivity="false">
+		<appender-ref ref="dailyRollingFileAppender_WEB_TimeTask" />
+	</logger>
+
+	<!--<root>-->
+		<!--<level value="INFO" />-->
+		<!--<appender-ref ref="dailyRollingFileAppender_CSW" />-->
+	<!--</root>-->
+</configuration>  

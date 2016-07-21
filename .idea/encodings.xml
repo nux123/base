@@ -6,5 +6,6 @@
     <file url="file://$PROJECT_DIR$/baseEntity" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/baseService" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/baseStatic" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/baseUtil" charset="UTF-8" />
   </component>
 </project>
