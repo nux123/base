@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/baseEntity/baseEntity.iml" filepath="$PROJECT_DIR$/baseEntity/baseEntity.iml" />
       <module fileurl="file://$PROJECT_DIR$/baseService/baseService.iml" filepath="$PROJECT_DIR$/baseService/baseService.iml" />
       <module fileurl="file://$PROJECT_DIR$/baseStatic/baseStatic.iml" filepath="$PROJECT_DIR$/baseStatic/baseStatic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseUtil/baseUtil.iml" filepath="$PROJECT_DIR$/baseUtil/baseUtil.iml" />
     </modules>
   </component>
 </project>

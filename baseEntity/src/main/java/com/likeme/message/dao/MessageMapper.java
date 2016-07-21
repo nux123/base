@@ -48,9 +48,11 @@ public interface MessageMapper {
      */
     @Insert({
         "insert into message (id, user_id, ",
-        "message)",
+        "message, createTime, ",
+        "updateTime)",
         "values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=varchar}, ",
-        "#{message,jdbcType=text})"
+        "#{message,jdbcType=text}, #{createtime,jdbcType=TIMESTAMP}, ",
+        "#{updatetime,jdbcType=TIMESTAMP})"
     })
     @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=true, resultType=String.class)
     int insert(Message record);
@@ -79,7 +81,7 @@ public interface MessageMapper {
      */
     @Select({
         "select",
-        "id, user_id, message",
+        "id, user_id, message, createTime, updateTime",
         "from message",
         "where id = #{id,jdbcType=VARCHAR}"
     })
@@ -119,7 +121,9 @@ public interface MessageMapper {
     @Update({
         "update message",
         "set user_id = #{userId,jdbcType=varchar},",
-          "message = #{message,jdbcType=text}",
+          "message = #{message,jdbcType=text},",
+          "createTime = #{createtime,jdbcType=TIMESTAMP},",
+          "updateTime = #{updatetime,jdbcType=TIMESTAMP}",
         "where id = #{id,jdbcType=VARCHAR}"
     })
     int updateByPrimaryKey(Message record);
