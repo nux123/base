@@ -10,6 +10,7 @@
     <module>baseStatic</module>
     <module>baseEntity</module>
     <module>baseService</module>
+    <module>baseUtil</module>
   </modules>
   <packaging>pom</packaging>
 

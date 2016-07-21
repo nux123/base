@@ -1,28 +1,32 @@
 package com.likeme.user.impl;
 
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.likeme.user.UserService;
 import com.likeme.user.dao.UserMapper;
 import com.likeme.user.model.User;
 import com.likeme.user.model.UserExample;
+import com.likeme.utils.UUIDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
 
 /**
- * Created by baymax on 16/4/25.
+ * Created by yuqian wang on 16/4/25.
  */
 
 
-@Service()
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    UserMapper userMapper;
+    private UserMapper userMapper;
 
 
     //登录操作
+    @Override
     public User userLogin(String userName,String password){
 
         UserExample ue = new UserExample();
@@ -54,5 +58,22 @@ public class UserServiceImpl implements UserService {
             return userList.get(0);
         }
         return null;
+    }
+
+
+    //注册操作
+    @Override
+    public Boolean userRegister(User user){
+        try {
+            user.setId(UUIDUtil.getUUID());
+            user.setCreatetime(new Date());
+            user.setUpdatetime(new Date());
+            Integer count = userMapper.insertSelective(user);
+            if (count != null && count > 0) {
+                return true;
+            }
+        }catch(Exception e){
+        }
+        return false;
     }
 }

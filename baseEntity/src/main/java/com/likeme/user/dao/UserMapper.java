@@ -49,12 +49,12 @@ public interface UserMapper {
     @Insert({
         "insert into user (id, user_name, ",
         "password, phone_number, ",
-        "address, email, ",
-        "user_img)",
+        "address, email, user_img, ",
+        "createTime, updateTime)",
         "values (#{id,jdbcType=VARCHAR}, #{userName,jdbcType=varchar}, ",
-        "#{password,jdbcType=varchar}, #{phoneNumber,jdbcType=int}, ",
-        "#{address,jdbcType=varchar}, #{email,jdbcType=varchar}, ",
-        "#{userImg,jdbcType=varchar})"
+        "#{password,jdbcType=text}, #{phoneNumber,jdbcType=int}, ",
+        "#{address,jdbcType=text}, #{email,jdbcType=text}, #{userImg,jdbcType=text}, ",
+        "#{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP})"
     })
     @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=true, resultType=String.class)
     int insert(User record);
@@ -83,7 +83,8 @@ public interface UserMapper {
      */
     @Select({
         "select",
-        "id, user_name, password, phone_number, address, email, user_img",
+        "id, user_name, password, phone_number, address, email, user_img, createTime, ",
+        "updateTime",
         "from user",
         "where id = #{id,jdbcType=VARCHAR}"
     })
@@ -123,11 +124,13 @@ public interface UserMapper {
     @Update({
         "update user",
         "set user_name = #{userName,jdbcType=varchar},",
-          "password = #{password,jdbcType=varchar},",
+          "password = #{password,jdbcType=text},",
           "phone_number = #{phoneNumber,jdbcType=int},",
-          "address = #{address,jdbcType=varchar},",
-          "email = #{email,jdbcType=varchar},",
-          "user_img = #{userImg,jdbcType=varchar}",
+          "address = #{address,jdbcType=text},",
+          "email = #{email,jdbcType=text},",
+          "user_img = #{userImg,jdbcType=text},",
+          "createTime = #{createtime,jdbcType=TIMESTAMP},",
+          "updateTime = #{updatetime,jdbcType=TIMESTAMP}",
         "where id = #{id,jdbcType=VARCHAR}"
     })
     int updateByPrimaryKey(User record);

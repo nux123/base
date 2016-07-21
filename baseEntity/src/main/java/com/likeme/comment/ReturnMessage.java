@@ -4,24 +4,24 @@ package com.likeme.comment;
  * Created by baymax on 16/4/25.
  * 返回类型
  */
-public class ReturnMessage {
+public     class ReturnMessage {
 
 
-    public  String message;  //消息
+    public  static String message;  //消息
 
-    public String stutas;   //状态
+    public static String stutas;   //状态
 
-    public Object obj;   //返回实体
+    public static Object obj;   //返回实体
 
-    public String getMessage() {
+    public static String getMessage() {
         return message;
     }
 
-    public String getStutas() {
+    public static String getStutas() {
         return stutas;
     }
 
-    public Object getObj() {
+    public static Object getObj() {
         return obj;
     }
 

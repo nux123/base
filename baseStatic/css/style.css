@@ -1868,3 +1868,47 @@ ol.style1 {
 #copyright span a:hover {
     color: #fff;
 }
+
+
+#login-wrapper{
+    background-image:url('images/loginBackground.jpg');
+    -moz-background-size:cover;
+    -webkit-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+}
+
+#login_body{
+    background-image:url('images/loginsquare2.png');
+    width: 500px;
+    height: 430px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#login_button{
+    background-color: #91c46c;
+    width: 285px;
+    height: 40px;
+    color: white;
+    border: none;
+    font-size: 18px;
+    margin:22px 0 0 90px;
+    border-radius:5px;
+}
+
+#login_username{
+    margin-top: 48%;
+    margin-left: 26%;
+    width: 240px;
+    background: none;
+    border: none;
+}
+
+#login_password{
+    margin: 22px 0 0 125px;
+    width: 240px;
+    background: none;
+    border: none;
+}
