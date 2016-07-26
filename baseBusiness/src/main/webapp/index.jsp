@@ -56,15 +56,15 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             <ul>
                 <li><a class="icon icon-home" href="index.html"><span>首页</span></a></li>
                 <li>
-                    <a href="" class="icon icon-bar-chart"><span>达人</span></a>
+                    <a href="" class="icon icon-bar-chart"><span>Dropdown</span></a>
                     <ul>
-                        <li><a href="#">减肥</a></li>
-                        <li><a href="#">编发</a></li>
-                        <li><a href="#">服饰</a></li>
+                        <li><a href="#">Lorem ipsum dolor</a></li>
+                        <li><a href="#">Magna phasellus</a></li>
+                        <li><a href="#">Etiam dolore nisl</a></li>
                         <li>
-                            <a href="">美妆</a>
+                            <a href="">Phasellus consequat</a>
                             <ul>
-                                <li><a href="#"></a></li>
+                                <li><a href="#">Magna phasellus</a></li>
                                 <li><a href="#">Etiam dolore nisl</a></li>
                                 <li><a href="#">Phasellus consequat</a></li>
                             </ul>
