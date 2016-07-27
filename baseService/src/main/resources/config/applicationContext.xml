@@ -13,5 +13,12 @@
 	<!-- 类扫描开启 -->
 	<context:component-scan base-package="com.likeme.*" />
 	<context:property-placeholder location="classpath*:properties/*.properties"/>
+	<!-- 自动IOC打开 -->
+	<context:spring-configured />
+
+	<!-- 打开 切面代理 -->
+	<aop:aspectj-autoproxy/>
+	<bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator" />
+
 
 </beans>

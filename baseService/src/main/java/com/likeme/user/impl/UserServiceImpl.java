@@ -1,14 +1,14 @@
 package com.likeme.user.impl;
 
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import com.likeme.user.UserService;
-import com.likeme.user.dao.UserMapper;
+import com.likeme.user.mapper.UserMapper;
 import com.likeme.user.model.User;
 import com.likeme.user.model.UserExample;
-import com.likeme.utils.UUIDUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Resource
     private UserMapper userMapper;
 
 
@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean userRegister(User user){
         try {
-            user.setId(UUIDUtil.getUUID());
+//            user.setId(UUIDUtil.getUUID());
             user.setCreatetime(new Date());
             user.setUpdatetime(new Date());
             Integer count = userMapper.insertSelective(user);

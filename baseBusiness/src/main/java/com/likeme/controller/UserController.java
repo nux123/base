@@ -1,52 +1,48 @@
 package com.likeme.controller;
 
-import com.likeme.comment.ReturnMessage;
 import com.likeme.user.UserService;
 import com.likeme.user.model.User;
-import com.likeme.utils.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by baymax on 16/4/25.
  */
 
-@Controller("userController")
-@RequestMapping(value="/user")
+@Controller
 public class UserController {
 
 
     @Autowired
     private UserService userService;
 
-    ReturnMessage returnMessage = new ReturnMessage();
-
-    @RequestMapping(value="/login",method = RequestMethod.POST)
-    public ReturnMessage userLogin(User user){
-        String userName = user.getUserName()==null?"":user.getUserName();
-        String password = user.getPassword()==null?"":user.getPassword();
-        User u = userService.userLogin(userName,password);
-        if(u!=null){
-            returnMessage.setStutas(Constant.SUCCESS_CODE);
-        }else{
-            returnMessage.setStutas(Constant.FAIL_CODE);
+    @RequestMapping(value = "/login")
+    @ResponseBody
+    public User userLogin(User user) {
+        String userName = user.getUserName() == null ? "" : user.getUserName();
+        String password = user.getPassword() == null ? "" : user.getPassword();
+        User u = userService.userLogin(userName, password);
+        if (u != null) {
+            return u;
         }
-        returnMessage.setObj(u);
-
-        return returnMessage;
+        return null;
     }
 
-    @RequestMapping(value="/register")
-    public ReturnMessage userRegister(User user){
-         if(userService.userRegister(user)){
-             returnMessage.setStutas(Constant.SUCCESS_CODE);
-         }else {
-             returnMessage.setStutas(Constant.FAIL_CODE);
-         }
-        returnMessage.setObj(user);
+    @RequestMapping(value="/gotoRegister")
+    public String gotoRegister() {
+        return "register";
+    }
 
-        return returnMessage;
+    @RequestMapping(value = "/register")
+    public String userRegister(User user) {
+        userService.userRegister(user);
+
+
+        return "";
     }
 }

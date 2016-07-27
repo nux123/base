@@ -10,7 +10,6 @@
 	        ">
 
 	<!-- mybatis 配置 -->
-	<beans profile="dev">
 		<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 			init-method="init" destroy-method="close">
 			<property name="url" value="${dev.database.url}" />
@@ -29,59 +28,16 @@
 			<property name="logAbandoned" value="true" />
 			<!-- <property name="filters" value="mergeStat" /> -->
 		</bean>
-	</beans>
-	
-	
-	<beans profile="test">
-		<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
-			init-method="init" destroy-method="close">
-			<property name="url" value="${test.database.url}" />
-			<property name="username" value="${test.database.username}" />
-			<property name="password" value="${test.database.password}" />
-			<property name="initialSize" value="10" />
-			<property name="maxActive" value="50" />
-			<property name="maxWait" value="100" />
-			<!-- <property name="validationQuery" value="${validationQuery}" /> -->
-			<property name="testOnBorrow" value="false" />
-			<property name="testOnReturn" value="false" />
-			<property name="testWhileIdle" value="false" />
-			<property name="timeBetweenEvictionRunsMillis" value="60000" />
-			<property name="removeAbandoned" value="true" />
-			<property name="removeAbandonedTimeout" value="200000" />
-			<property name="logAbandoned" value="true" />
-			<!-- <property name="filters" value="mergeStat" /> -->
-		</bean>
-	</beans>
-	
-	<beans profile="prod">
-		<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
-			init-method="init" destroy-method="close">
-			<property name="url" value="${prod.database.url}" />
-			<property name="username" value="${prod.database.username}" />
-			<property name="password" value="${prod.database.password}" />
-			<property name="initialSize" value="30" />
-			<property name="maxActive" value="200" />
-			<property name="maxWait" value="300" />
-			<!-- <property name="validationQuery" value="${validationQuery}" /> -->
-			<property name="testOnBorrow" value="false" />
-			<property name="testOnReturn" value="false" />
-			<property name="testWhileIdle" value="false" />
-			<property name="timeBetweenEvictionRunsMillis" value="60000" />
-			<property name="removeAbandoned" value="true" />
-			<property name="removeAbandonedTimeout" value="200000" />
-			<property name="logAbandoned" value="true" />
-			<!-- <property name="filters" value="mergeStat" /> -->
-		</bean>
-	</beans>
+
 
 
 	<beans>
 		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 			<property name="dataSource" ref="dataSource" />
-			<property name="mapperLocations" value="classpath*:com/likeme/*/xml/*.xml"/>
+			<property name="mapperLocations" value="classpath*:com/likeme/*/mapper/xml/*.xml"/>
 		</bean>
 		<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-			<property name="basePackage" value="com.likeme.*" />
+			<property name="basePackage" value="com.likeme.*.mapper" />
 			<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" /> <!-- 指定sqlSessionFactoryName -->
 		</bean>
 	

@@ -9,20 +9,6 @@
          version="3.0">
     <display-name>base</display-name>
 
-    <context-param>
-        <param-name>spring.profiles.default</param-name>
-        <param-value>dev</param-value>
-    </context-param>
-
-    <context-param>
-        <param-name>spring.profiles.active</param-name>
-        <param-value>dev</param-value>
-    </context-param>
-
-    <context-param>
-        <param-name>defaultHtmlEscape</param-name>
-        <param-value>true</param-value>
-    </context-param>
 
 
     <!-- 指定上下文配置文件 -->
@@ -41,6 +27,8 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
+
 
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
@@ -85,6 +73,10 @@
         <servlet-name>base</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+    <session-config>
+        <session-timeout>30</session-timeout>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
     <!--<servlet-mapping>-->
         <!--<servlet-name>default</servlet-name>-->
         <!--<url-pattern>*.html</url-pattern>-->

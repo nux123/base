@@ -1,11 +1,11 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page contentType="text/html; charset=UTF-8"%>
-<%@ page isELIgnored="false"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page isELIgnored="false" %>
 
 <spring:url value="/" var="prjroot"></spring:url>
-<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE HTML>
 <!--
 Strongly Typed 1.0 by HTML5 UP
@@ -19,9 +19,15 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <meta name="viewport" content="width=1040"/>
+    <link href="${ctx}/static/plugins/glyphicons/css/glyphicons.css" rel="stylesheet"/>
+    <link href="${ctx}/static/plugins/glyphicons_halflings/css/halflings.css" rel="stylesheet"/>
+    <link href="${ctx}/static/core/css/style-metro.css" rel="stylesheet" type="text/css"/>
+    <link href="${ctx}/static/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
+
+    <link href="${ctx}/static/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 
     <!--[if lte IE 8]>
-         <script src="${prjroot}static/js/html5shiv.js"></script>
+    <script src="${prjroot}static/js/html5shiv.js"></script>
     <![endif]-->
     <script src="${prjroot}js/jquery.min.js"></script>
     <script src="${prjroot}js/jquery.dropotron.js"></script>
@@ -34,7 +40,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <link rel="stylesheet" href="${prjroot}css/style-desktop.css"/>
     </noscript>
 </head>
-<body class="homepage">
+<body class="left-sidebar">
 
 <!-- Header Wrapper -->
 <div id="header-wrapper">
@@ -43,18 +49,51 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <div id="header" class="container">
         <!-- Login -->
         <div id="login">
-
+            <a class="glyphicons no-js align_center" data-toggle="modal" href="#loginView"
+               style="border-bottom:none;"><i></i></a>
         </div>
 
+        <!--LOGIN VIEW-->
+        <div id="loginView" class="modal hide fade" tabindex="-1" data-focus-on="input:first">
+            <div class="modal-header">
+                <h3>Login in</h3>
+            </div>
+            <div class="modal-body">
+                <div class="login-form">
+                    <form action="#" name="loginForm">
+
+                        <input type="text" class="m-wrap-login" id="userName" placeholder="Username/Email/PhoneNumber">
+                        <!--<i class="fa fa-check" style="color:green"></i>
+                        <span class="help-inline ok"></span>
+                        <i class="fa fa-warning" style="color:#c09853"></i>-->
+                        <p/>
+
+                        <input type="password" class="m-wrap-login" id="password" placeholder="Password">
+                        <a href="">
+                        <p/>
+                    </form>
+                </div>
+                <div class="login-userimg">
+                    <img src="images/pic02.jpg" class="m-wrap-loginImg" id="userImg">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn">Close</button>
+                <button type="button" class="btn red" id="loginSubmit">Ok</button>
+            </div>
+        </div>
+        <!--LOGIN VIEW-->
+
+
         <!-- Logo -->
-        <h1 id="logo"><a href="#"> FROM THE SEA</a></h1>
+        <h1 id="logo"><a href="#">Strongly Typed</a></h1>
 
         <p>A responsive HTML5 site template. Manufactured by HTML5 UP.</p>
 
         <!-- Nav -->
         <nav id="nav">
             <ul>
-                <li><a class="icon icon-home" href="index.html"><span>首页</span></a></li>
+                <li><a class="icon icon-home" href="index.html"><span>Introduction</span></a></li>
                 <li>
                     <a href="" class="icon icon-bar-chart"><span>Dropdown</span></a>
                     <ul>
@@ -72,8 +111,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         <li><a href="#">Veroeros feugiat</a></li>
                     </ul>
                 </li>
-                <li><a class="icon icon-cog" href="left-sidebar.html"><span>资讯</span></a></li>
-                <li><a class="icon icon-retweet" href="right-sidebar.html"><span></span></a></li>
+                <li><a class="icon icon-cog" href="left-sidebar.html"><span>Left Sidebar</span></a></li>
+                <li><a class="icon icon-retweet" href="right-sidebar.html"><span>Right Sidebar</span></a></li>
                 <li><a class="icon icon-sitemap" href="no-sidebar.html"><span>No Sidebar</span></a></li>
             </ul>
         </nav>
@@ -82,154 +121,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 </div>
 
-<!-- Features Wrapper -->
-<div id="features-wrapper">
-
-    <!-- Features -->
-    <section id="features" class="container">
-        <header>
-            <h2>Gentlemen, behold! This is <strong>Strongly Typed</strong>!</h2>
-        </header>
-        <div class="row">
-            <div class="4u">
-
-                <!-- Feature -->
-                <section>
-                    <a href="http://regularjane.deviantart.com/art/Old-Reads-363428235" class="image image-full"><img
-                            src="${prjroot}static/images/pic01.jpg" alt=""/></a>
-                    <header>
-                        <h3>Okay, so what is this?</h3>
-                    </header>
-                    <p>This is <strong>Strongly Typed</strong>, a free, fully responsive site template
-                        by <a href="http://html5up.net/">HTML5 UP</a>. Free for personal and commercial use under the
-                        <a href="http://html5up.net/license/">CCA 3.0 license</a>.</p>
-                </section>
-
-            </div>
-            <div class="4u">
-
-                <!-- Feature -->
-                <section>
-                    <a href="http://regularjane.deviantart.com/art/Nutella-359114563" class="image image-full"><img
-                            src="${prjroot}static/images/pic02.jpg" alt=""/></a>
-                    <header>
-                        <h3>Nice! What is HTML5 UP?</h3>
-                    </header>
-                    <p><a href="http://html5up.net/">HTML5 UP</a> is a side project of <a href="http://n33.co">AJ’s</a>
-                        (ie. me).
-                        I started it as a way to both test my <a href="http://skeljs.org">skelJS</a> framework (formerly
-                        5grid) and sharpen up my design skills a bit.</p>
-                </section>
-
-            </div>
-            <div class="4u">
-
-                <!-- Feature -->
-                <section>
-                    <a href="http://regularjane.deviantart.com/art/Solo-Spring-358679786" class="image image-full"><img
-                            src="${prjroot}static/images/pic03.jpg" alt=""/></a>
-                    <header>
-                        <h3>skelJS? WTF is that?</h3>
-                    </header>
-                    <p><a href="http://skeljs.org">skelJS</a> is a lightweight framework for building responsive
-                        sites and apps. All of my designs at <a href="http://html5up.net/">HTML5 UP</a> (including this
-                        one) are built on this framework.</p>
-                </section>
-
-            </div>
-        </div>
-        <ul class="actions">
-            <li><a href="#" class="button button-icon icon icon-file">Tell Me More</a></li>
-        </ul>
-    </section>
-
-</div>
-
-<!-- Banner Wrapper -->
-<div id="banner-wrapper">
-    <div class="inner">
-
-        <!-- Banner -->
-        <section id="banner" class="container">
-            <p>Use this space for <strong>profound thoughts</strong>.<br/>
-                Or an enormous ad. Whatever.</p>
-        </section>
-
-    </div>
-</div>
-
 <!-- Main Wrapper -->
 <div id="main-wrapper">
 
     <!-- Main -->
     <div id="main" class="container">
         <div class="row">
-
-            <!-- Content -->
-            <div id="content" class="8u">
-
-                <!-- Post -->
-                <article class="is-post">
-                    <header>
-                        <h2><a href="#">I don’t want to say <strong>it’s the aliens</strong> ...<br/>
-                            but it’s the aliens.</a></h2>
-                    </header>
-                    <a href="http://regularjane.deviantart.com/art/Write-354865228" class="image image-full"><img
-                            src="${prjroot}static/images/pic04.jpg" alt=""/></a>
-
-                    <h3>I mean isn't it possible?</h3>
-
-                    <p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-                        ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-                        sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-                        in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-                        magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-                        consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-                        justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-                        mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-                        Curabitur leo nibh, rutrum eu malesuada in, tristique at erat.</p>
-                    <ul class="actions">
-                        <li><a href="#" class="button button-icon icon icon-file">Continue Reading</a></li>
-                    </ul>
-                </article>
-
-                <!-- Post -->
-                <article class="is-post">
-                    <header>
-                        <h2><a href="#">By the way, many thanks to <strong>regularjane</strong>
-                            for these awesome demo photos</a></h2>
-                    </header>
-                    <a href="http://regularjane.deviantart.com/art/Old-Player-350896538" class="image image-full"><img
-                            src="${prjroot}static/images/pic05.jpg" alt=""/></a>
-
-                    <h3>You should probably check out her work</h3>
-
-                    <p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-                        ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-                        sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-                        in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-                        consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-                        in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-                        magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-                        consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-                        justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-                        mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-                        Curabitur leo nibh, rutrum eu malesuada in, tristique at erat.</p>
-
-                    <p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat
-                        Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit ligula
-                        vel quam viverra sit amet mollis tortor congue. Sed quis mauris sit amet
-                        magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada in,
-                        tristique at erat. Curabitur leo nibh, rutrum eu malesuada in, tristique
-                        at erat lorem ipsum dolor sit amet lorem ipsum sed consequat magna
-                        tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros consequat
-                        magna tempus</p>
-                    <ul class="actions">
-                        <li><a href="#" class="button button-icon icon icon-file">Continue Reading</a></li>
-                    </ul>
-                </article>
-
-            </div>
 
             <!-- Sidebar -->
             <div id="sidebar" class="4u">
@@ -296,7 +193,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                     <h3><a href="#">Something of note</a></h3>
                                 </header>
                                 <a href="http://regularjane.deviantart.com/art/In-Your-Hands-356733525"
-                                   class="image image-left"><img src="${prjroot}static/images/pic06.jpg" alt=""/></a>
+                                   class="image image-left"><img src="images/pic06.jpg" alt=""/></a>
 
                                 <p>Phasellus sed laoreet massa id justo mattis pharetra. Fusce suscipit ligula vel quam
                                     viverra sit amet mollis tortor congue magna lorem ipsum dolor et quisque ut odio
@@ -317,7 +214,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                     <h3><a href="#">Something of less note</a></h3>
                                 </header>
                                 <a href="http://regularjane.deviantart.com/art/Pink-Rain-2009-134901803"
-                                   class="image image-left"><img src="${prjroot}static/images/pic07.jpg" alt=""/></a>
+                                   class="image image-left"><img src="images/pic07.jpg" alt=""/></a>
 
                                 <p>Phasellus sed laoreet massa id justo mattis pharetra. Fusce suscipit ligula vel quam
                                     viverra sit amet mollis tortor congue magna lorem ipsum dolor et quisque ut odio
@@ -332,6 +229,92 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         </li>
                     </ul>
                 </section>
+
+            </div>
+
+            <!-- Content -->
+            <div id="content" class="8u skel-cell-mainContent">
+
+                <!-- Post -->
+                <article class="is-post">
+                    <header>
+                        <h2>Behold! This is the <strong>left sidebar</strong> layout<br/>
+                            with a sidebar on the left!</h2>
+                    </header>
+                    <span class="image image-full"><img src="images/pic04.jpg" alt=""/></span>
+
+                    <h3>Left is the opposite of right</h3>
+
+                    <p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
+                        ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
+                        sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
+                        in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
+                        magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
+                        consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
+                        justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
+                        mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
+                        Curabitur leo nibh, rutrum eu malesuada in, tristique at erat.</p>
+
+                    <p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat
+                        Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit ligula
+                        vel quam viverra sit amet mollis tortor congue. Sed quis mauris sit amet
+                        magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada in,
+                        tristique at erat. Curabitur leo nibh, rutrum eu malesuada in, tristique
+                        at erat lorem ipsum dolor sit amet lorem ipsum sed consequat magna
+                        tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros consequat
+                        magna tempus</p>
+
+                    <p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
+                        ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
+                        sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
+                        in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
+                        consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
+                        in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
+                        magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
+                        consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
+                        justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
+                        mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
+                        Curabitur leo nibh, rutrum eu malesuada in, tristique at erat.</p>
+
+                    <h3>Accumsan lorem ipsum veroeros</h3>
+
+                    <p>Consequat Phasellus laoreet massa id in, tristique at erat lorem
+                        ipsum dolor sit amet lorem ipsum sed consequat magna tempus veroeros
+                        consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
+                        justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
+                        mollis tortor congue. Sed quis mauris sit amet magna.</p>
+
+                    <p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
+                        ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
+                        sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
+                        in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
+                        consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
+                        in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
+                        magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
+                        consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
+                        justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
+                        mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
+                        Curabitur leo nibh, rutrum eu malesuada in, tristique at erat.</p>
+
+                    <h3>Ligula suspcipit fusce veroeros</h3>
+
+                    <p>Nullam dolore etiam sed massa id in, tristique at erat lorem
+                        ipsum dolor sit amet lorem ipsum sed consequat magna tempus veroeros
+                        consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
+                        justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
+                        mollis tortor congue. Sed quis mauris sit amet magna.</p>
+
+                    <p>Sed massa id justo mattis pharetra. Fusce suscipit
+                        ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
+                        sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
+                        in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
+                        consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
+                        in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
+                        magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
+                        consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
+                        justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
+                        mollis tortor congue. Sed quis mauris sit amet magna accumsan.</p>
+                </article>
 
             </div>
 
@@ -425,4 +408,22 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 </div>
 
 </body>
+
+<script src="${ctx}/static/plugins/jquery/jquery.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="${ctx}/static/plugins/excanvas.min.js"></script>
+<script src="${ctx}/static/plugins/respond.min.js"></script>
+<![endif]-->
+<script src="${ctx}/static/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+<script src="${ctx}/static/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+<script src="${ctx}/static/core/js/ui-modals.js"></script>
+<script>
+    $('#loginSubmit').click(function () {
+        var userName = $('#userName').val();
+        var password = $('#password').val();
+        $.post('login', {userName: userName, password: password}, function (data) {
+             alert(data);
+        });
+    });
+</script>
 </html>

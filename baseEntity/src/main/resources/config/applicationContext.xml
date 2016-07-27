@@ -10,9 +10,7 @@
 				         http://www.springframework.org/schema/context
 				         http://www.springframework.org/schema/context/spring-context.xsd
 				         ">
-	<!-- 类扫描开启 -->
-	<context:component-scan base-package="com.likeme.*" />
-	<context:property-placeholder location="classpath*:properties/*.properties"/>
-
+	<!--&lt;!&ndash; 类扫描开启 &ndash;&gt;-->
+	<!--<context:component-scan base-package="com.likeme.*" />-->
 
 </beans>
